@@ -91,7 +91,7 @@ class DiscordRpc
             _options.smallImageKey, _options.smallImageText,
             _options.partyID, _options.partySize, _options.partyMax,
             _options.matchSecret, _options.joinSecret, _options.spectateSecret,
-            _options.instance);
+            _options.instance, _options.button1Label, _options.button1Url, _options.button2Label, _options.button2Url);
     }
 
     /**
@@ -140,7 +140,7 @@ private extern class DiscordRpcExterns
         _smallImageKey : String, _smallImageText : String,
         _partyID : String, _partySize : Int, _partyMax : Int,
         _matchSecret : String, _joinSecret : String, _spectateSecret : String,
-        _instance : cpp.Int8
+        _instance : cpp.Int8, button1Text : String, button1Url : String, button2Text : String, button2Url : String
     ) : Void;
 
     @:native('linc::discord_rpc::shutdown')
@@ -208,6 +208,10 @@ typedef DiscordPresenceOptions = {
     @:optional var spectateSecret : String;
     @:optional var joinSecret     : String;
     @:optional var instance : Int;
+    @:optional var button1Label:String;
+    @:optional var button1Url:String;
+    @:optional var button2Label:String;
+    @:optional var button2Url:String;
 }
 
 @:enum abstract Reply(Int) from Int to Int {
