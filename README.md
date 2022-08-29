@@ -1,5 +1,7 @@
 # linc/discord-RPC
 
+Fork adds buttons support
+
 Haxe/hxcpp @:native bindings for [discord-rpc](https://github.com/discordapp/discord-rpc)
 
 ![example rpc](https://raw.githubusercontent.com/Aidan63/haxe-discord_rpc-externs/master/discord_rpc_example.png)
@@ -10,7 +12,7 @@ This library only works with the Haxe cpp target.
 ---
 
 ## Install
-`haxelib git discord_rpc https://github.com/Aidan63/linc_discord-rpc`
+`haxelib git discord_rpc https://github.com/YoshiCrafter29/linc_discord-rpc`
 
 ## Example Usage
 
