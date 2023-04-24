@@ -3,7 +3,7 @@ package linc;
 import haxe.io.Path;
 import haxe.macro.Expr;
 import haxe.macro.Context;
-
+import lime.system.System;
 using haxe.macro.PositionTools;
 
 
