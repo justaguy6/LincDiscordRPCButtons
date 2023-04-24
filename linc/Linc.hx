@@ -12,6 +12,9 @@ class Linc {
     /** Adds a private internal inline static variable called __touch,
         which sets the value to the current time so that builds are always
         updated by the code, and native changes are dragged in automatically (except for header only changes) */
+    
+    public static var AndroidDirectory:String = System.applicationStorageDirectory;
+    
     macro public static function touch() : Array<Field> {
 
         var _fields = Context.getBuildFields();
@@ -41,7 +44,7 @@ class Linc {
 
         var _source_path = Path.directory(_pos_info.file);
         if( !Path.isAbsolute(_source_path) ) {
-            _source_path = Path.join([Sys.getCwd(), _source_path]);
+            _source_path = Path.join([AndroidDirectory(), _source_path]);
         }
 
         _source_path = Path.normalize(_source_path);
