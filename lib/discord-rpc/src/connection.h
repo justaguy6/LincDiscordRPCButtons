@@ -4,11 +4,10 @@
 
 #include <stdint.h>
 #include <stdlib.h>
+#include <jni.h>
 
-// not really connectiony, but need per-platform
-int GetProcessId();
-
-struct BaseConnection {
+class BaseConnection {
+public:
     static BaseConnection* Create();
     static void Destroy(BaseConnection*&);
     bool isOpen{false};
@@ -16,4 +15,8 @@ struct BaseConnection {
     bool Close();
     bool Write(const void* data, size_t length);
     bool Read(void* data, size_t length);
+
+private:
+    jobject m_javaChannel = nullptr;
+    JNIEnv* m_jniEnv = nullptr;
 };
