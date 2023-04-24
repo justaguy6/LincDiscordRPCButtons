@@ -31,6 +31,10 @@
         <section if = "linux">
             <file name = "${DISCORD-RPC-BUTTONS}/src/connection_unix.cpp" />
             <file name = "${DISCORD-RPC-BUTTONS}/src/discord_register_linux.cpp" />
+            
+       <section if = "android">
+            <file name = "${DISCORD-RPC-BUTTONS}/src/connection_and.cpp" />
+            <file name = "${DISCORD-RPC-BUTTONS}/src/discord_register_android.cpp" />     
         </section>
 
     </files>
