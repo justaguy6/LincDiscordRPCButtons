@@ -1,12 +1,29 @@
-#pragma once
+#include <jni.h>
+#include <android/log.h>
+#include "discord-rpc.h"
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+void Java_com_example_app_Discord_Register(JNIEnv* env, jobject thiz, jstring applicationId, jstring command)
+{
+    const char* appId = env->GetStringUTFChars(applicationId, NULL);
+    const char* cmd = env->GetStringUTFChars(command, NULL);
 
-void Discord_Register(const char* applicationId, const char* command);
-void Discord_RegisterSteamGame(const char* applicationId, const char* steamId);
+    // Chame a função Discord_Register aqui
+    Discord_Register(appId, cmd);
 
-#ifdef __cplusplus
+    // Libere os recursos e strings
+    env->ReleaseStringUTFChars(applicationId, appId);
+    env->ReleaseStringUTFChars(command, cmd);
 }
-#endif
+
+void Java_com_example_app_Discord_RegisterSteamGame(JNIEnv* env, jobject thiz, jstring applicationId, jstring steamId)
+{
+    const char* appId = env->GetStringUTFChars(applicationId, NULL);
+    const char* steamIdStr = env->GetStringUTFChars(steamId, NULL);
+
+    // Chame a função Discord_RegisterSteamGame aqui
+    Discord_RegisterSteamGame(appId, steamIdStr);
+
+    // Libere os recursos e strings
+    env->ReleaseStringUTFChars(applicationId, appId);
+    env->ReleaseStringUTFChars(steamId, steamIdStr);
+}
